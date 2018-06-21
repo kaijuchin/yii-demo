@@ -16,19 +16,8 @@ class DefaultController extends Controller
      * Renders the index view for the module
      * @return string
      */
-    public function actionIndex()
-    {   
-        $dataProvider = new ActiveDataProvider([
-            'query' => ProductCategory::find(),
-        ]);
-        $data = (ProductCategory::getCategoryTree());
-        return $this->render('index', [
-            'data' => $data,
-            'dataProvider' => $dataProvider,
-        ]);
-    }
 
-    public function actionView()
+    public function actionIndex()
     {
         $lists = ProductCategory::find()->orderBy('id')->asArray()->all();
         $parent = [];
